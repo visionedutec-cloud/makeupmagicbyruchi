@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makeup Magic by Ruchi</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">✿</div>
+      <h2>Makeup Magic</h2>
+      <span>BY RUCHI</span>
+    </div>
+
+    <div class="nav-label">WORKSPACE</div>
+    <button class="nav active" data-page="dashboard">⌂ Dashboard</button>
+    <button class="nav" data-page="appointments">▦ Appointments</button>
+    <button class="nav" data-page="booking">＋ New Booking</button>
+    <button class="nav" data-page="clients">♡ Clients</button>
+
+    <div class="nav-label">STUDIO</div>
+    <button class="nav" data-page="services">✧ Services</button>
+    <button class="nav" data-page="settings">⚙ Settings</button>
+
+    <div class="sidebar-bottom">
+      <div class="profile">
+        <div class="avatar">R</div>
+        <div>
+          <strong>Ruchi</strong>
+          <small>Studio Owner</small>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <div>
+        <span class="eyebrow">YOUR BEAUTY STUDIO</span>
+        <h2 id="page-title">Dashboard</h2>
+      </div>
+      <div class="top-actions">
+        <span class="today" id="today"></span>
+        <button class="primary-btn" onclick="showPage('booking')">
+          + New Appointment
+        </button>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page">
+      <div class="welcome">
+        <div>
+          <span>WELCOME TO YOUR STUDIO ✨</span>
+          <h1>Beauty begins with <em>you.</em></h1>
+          <p>Manage your appointments and make every client feel special.</p>
+        </div>
+        <div class="welcome-flower">✿</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span>Total Appointments</span>
+          <h2 id="total-count">0</h2>
+          <small>All bookings</small>
+        </div>
+        <div class="stat-card">
+          <span>Today's Bookings</span>
+          <h2 id="today-count">0</h2>
+          <small>Scheduled today</small>
+        </div>
+        <div class="stat-card">
+          <span>Upcoming</span>
+          <h2 id="upcoming-count">0</h2>
+          <small>Future appointments</small>
+        </div>
+        <div class="stat-card">
+          <span>Our Clients</span>
+          <h2 id="client-count">0</h2>
+          <small>Unique clients</small>
+        </div>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <h2>Upcoming Appointments</h2>
+          <p>Your studio schedule at a glance.</p>
+        </div>
+        <button class="text-btn" onclick="showPage('appointments')">
+          View all →
+        </button>
+      </div>
+
+      <div class="panel">
+        <div id="dashboard-list"></div>
+      </div>
+    </section>
+
+    <section id="booking" class="page hidden">
+      <div class="section-heading">
+        <div>
+          <h2>Create an Appointment</h2>
+          <p>Give every client a magical beauty experience.</p>
+        </div>
+      </div>
+
+      <form id="booking-form" class="panel booking-form">
+
+        <h3>♡ Client Information</h3>
+
+        <div class="form-grid">
+          <label>Full Name *
+            <input id="client-name" required placeholder="Client's name">
+          </label>
+
+          <label>Phone Number *
+            <input id="client-phone" required type="tel" placeholder="Phone number">
+          </label>
+
+          <label>Email Address
+            <input id="client-email" type="email" placeholder="Email address">
+          </label>
+
+          <label>Makeup Service *
+            <select id="service" required>
+              <option value="">Select a service</option>
+              <option>Bridal Makeup</option>
+              <option>Engagement Makeup</option>
+              <option>Party Makeup</option>
+              <option>Reception Makeup</option>
+              <option>HD Makeup</option>
+              <option>Airbrush Makeup</option>
+              <option>Makeup Consultation</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>Appointment Date *
+            <input id="date" type="date" required>
+          </label>
+
+          <label>Appointment Time *
+            <select id="time" required>
+              <option value="">Select date first</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <h3>✧ Allergy & Skin Information</h3>
+        <p class="helper">Please record any allergies or sensitivities before using makeup products.</p>
+
+        <label>Does the client have any known allergies?
+          <select id="allergy">
+            <option value="No known allergies reported">No known allergies reported</option>
+            <option value="Yes - details provided below">Yes</option>
+            <option value="Not yet confirmed">Not yet confirmed</option>
+          </select>
+        </label>
+
+        <label>Allergy Details
+          <textarea id="allergy-details" rows="3" placeholder="List known ingredients, reactions or sensitivities..."></textarea>
+        </label>
+
+        <label>Skin Type
+          <select id="skin">
+            <option>Not specified</option>
+            <option>Dry</option>
+            <option>Oily</option>
+            <option>Combination</option>
+            <option>Normal</option>
+            <option>Sensitive</option>
+          </select>
+        </label>
+
+        <label>Additional Notes
+          <textarea id="notes" rows="3" placeholder="Client preferences, event details, special requests..."></textarea>
+        </label>
+
+        <p class="privacy-note">
+          🔒 Allergy information is sensitive. Confirm product ingredients
+          and suitability with the client before application.
+        </p>
+
+        <div class="form-actions">
+          <button type="reset" class="secondary-btn">Clear Form</button>
+          <button type="submit" class="primary-btn">♡ Confirm Appointment</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section id="appointments" class="page hidden">
+      <div class="section-heading">
+        <div>
+          <h2>All Appointments</h2>
+          <p>Manage your beauty studio bookings.</p>
+        </div>
+        <button class="primary-btn" onclick="showPage('booking')">+ Add Booking</button>
+      </div>
+
+      <div class="panel">
+        <input id="appointment-search" placeholder="Search clients or services...">
+        <div id="appointments-list"></div>
+      </div>
+    </section>
+
+    <section id="clients" class="page hidden">
+      <div class="section-heading">
+        <div>
+          <h2>Our Clients</h2>
+          <p>Your studio's client directory.</p>
+        </div>
+      </div>
+      <div class="panel" id="clients-list"></div>
+    </section>
+
+    <section id="services" class="page hidden">
+      <div class="section-heading">
+        <div>
+          <h2>Our Beauty Services</h2>
+          <p>Explore the services offered at Makeup Magic by Ruchi.</p>
+        </div>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">♡<h3>Bridal Makeup</h3><p>Your special-day beauty experience.</p></div>
+        <div class="service-card">✧<h3>Engagement Makeup</h3><p>Elegant looks for special moments.</p></div>
+        <div class="service-card">✿<h3>Party Makeup</h3><p>Glamorous looks for every celebration.</p></div>
+        <div class="service-card">♕<h3>Reception Makeup</h3><p>Beautiful looks for your reception.</p></div>
+        <div class="service-card">✦<h3>HD Makeup</h3><p>Professional makeup application.</p></div>
+        <div class="service-card">❀<h3>Consultations</h3><p>Discuss your preferred makeup look.</p></div>
+      </div>
+    </section>
+
+    <section id="settings" class="page hidden">
+      <div class="section-heading">
+        <div>
+          <h2>Studio Settings</h2>
+          <p>Customize your appointment availability.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Studio Working Hours</h3>
+        <label>Opening Time
+          <input type="time" id="opening-time" value="09:00">
+        </label>
+        <label>Closing Time
+          <input type="time" id="closing-time" value="18:00">
+        </label>
+        <label>Appointment Interval
+          <select id="interval">
+            <option value="30">30 minutes</option>
+            <option value="60" selected>1 hour</option>
+            <option value="90">1 hour 30 minutes</option>
+            <option value="120">2 hours</option>
+          </select>
+        </label>
+        <p class="helper">These settings determine the available booking slots.</p>
+        <button class="primary-btn" id="save-settings">Save Settings</button>
+      </div>
+    </section>
+
+    <footer>Made with ♡ for Makeup Magic by Ruchi</footer>
+
+  </main>
+</div>
+
+<script src="scripts/app.js"></script>
+</body>
+</html>
